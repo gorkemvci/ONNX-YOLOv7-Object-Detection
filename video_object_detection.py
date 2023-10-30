@@ -14,7 +14,7 @@ prev_frame_time = 0
 new_frame_time = 0
 model_path = "models/best.onnx"
 yolov7_detector = YOLOv7(model_path, conf_thres=0.5, iou_thres=0.5)
-cap = cv2.VideoCapture('uav.mp4')
+cap = cv2.VideoCapture('UAV_Examples/uav1.mp4')
 cv2.namedWindow("Detected Objects", cv2.WINDOW_NORMAL)
 while cap.isOpened():
 

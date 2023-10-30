@@ -9,7 +9,7 @@ object_detection = False
 object_tracking = False
 object_tracking_statues = "Waiting-Detect"
 yolov7_detector = YOLOv7(model_path, conf_thres=0.5, iou_thres=0.5)
-video = cv2.VideoCapture('uav.mp4')
+video = cv2.VideoCapture('UAV_Examples/uav1.mp4')
 prev_frame_time = 0
 new_frame_time = 0
 if not video.isOpened():
