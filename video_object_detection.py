@@ -1,22 +1,20 @@
 import cv2
-from cap_from_youtube import cap_from_youtube
+
 
 from yolov7 import YOLOv7
 
 # # Initialize video
 # cap = cv2.VideoCapture("input.mp4")
 
-videoUrl = 'https://youtu.be/zPre8MgmcHY'
-cap = cap_from_youtube(videoUrl)
-start_time = 0  # skip first {start_time} seconds
-cap.set(cv2.CAP_PROP_POS_FRAMES, start_time * 30)
 
 # out = cv2.VideoWriter('output.avi', cv2.VideoWriter_fourcc('M', 'J', 'P', 'G'), 30, (1280, 720))
 
 # Initialize YOLOv7 model
-model_path = "models/yolov7_384x640.onnx"
+prev_frame_time = 0
+new_frame_time = 0
+model_path = "models/best.onnx"
 yolov7_detector = YOLOv7(model_path, conf_thres=0.5, iou_thres=0.5)
-
+cap = cv2.VideoCapture('uav.mp4')
 cv2.namedWindow("Detected Objects", cv2.WINDOW_NORMAL)
 while cap.isOpened():
 
